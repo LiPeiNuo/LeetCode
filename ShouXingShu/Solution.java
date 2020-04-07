@@ -1,4 +1,4 @@
-package isShouXingShu;
+package ShouXingShu;
 
 import java.util.Scanner;
 
