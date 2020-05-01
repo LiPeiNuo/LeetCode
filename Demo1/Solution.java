@@ -1,43 +1,42 @@
 package dome1;
+//给你一个整数数组 nums，请你返回其中位数为 偶数的数字的个数。
+//示例 1：
+// 输入：nums = [12,345,2,6,7896]
+// 输出：2
+// 解释：
+// 12 是 2 位数字（位数为偶数） 
+// 345 是 3 位数字（位数为奇数）  
+// 2 是 1 位数字（位数为奇数） 
+// 6 是 1 位数字 位数为奇数） 
+// 7896 是 4 位数字（位数为偶数）  
+// 因此只有 12 和 7896 是位数为偶数的数字
 
-import java.util.ArrayList;
-
-
-
-
-
-public class Solution {
-    public class TreeNode {
-        int val = 0;
-        TreeNode left = null;
-        TreeNode right = null;
-        public TreeNode(int val) {
-            this.val = val;
+class Solution {
+    public int findNumbers(int[] nums) {
+        int count = 0;
+        for(int num : nums) {
+            int tmp = String.valueOf(num).length() % 2;
+            if(tmp == 0) {
+                count += 1;
+            }else {
+                count += 0;
+            }
         }
+        return count;
     }
-    ArrayList<ArrayList<Integer>> Print(TreeNode pRoot) {
-        ArrayList<ArrayList<Integer>> lists = new ArrayList<>();
-        if (pRoot == null) {
-            return lists;
+    
+    
+    
+    public int findNumbers1(int[] nums) {
+        int count = 0;
+        for(int num : nums) {
+            int tmp = String.valueOf(num).length() % 2;
+            if(tmp == 0) {
+                count += 1;
+            }else {
+                count += 0;
+            }
         }
-        dfs(pRoot, 0, lists);
-        return lists;
+        return count;
     }
-    private void dfs(TreeNode pRoot, int deep, ArrayList<ArrayList<Integer>> lists) {
-        if (pRoot == null) {
-            return;
-        }
-        if (deep >= lists.size()) {
-            ArrayList<Integer> list = new ArrayList<>();
-            list.add(pRoot.val);
-            lists.add(list);
-        } else {
-            ArrayList<Integer> list = lists.get(deep);
-            list.add(pRoot.val);
-        }
-        dfs(pRoot.left, deep + 1, lists);
-        dfs(pRoot.right, deep + 1, lists);
-    }
-
-
 }
